@@ -1,0 +1,33 @@
+#include<stdio.h>
+#include<math.h>
+void main(void)
+{
+	double e,pi,f,lk,ck,dl,fi1,ti1,ti,tm,ugm,raz,td,ts,td1,ak;
+	printf("unesite promenljive redom kao e,pi,f,lk,ck,dl,fi1,tm,ugm\n");
+	scanf("%lf",&e);
+	scanf("%lf",&pi);
+	scanf("%lf",&f);
+	scanf("%lf",&lk);
+	scanf("%lf",&ck);
+	scanf("%lf",&dl);
+	scanf("%lf",&fi1);
+	scanf("%lf",&tm);
+	scanf("%lf",&ugm);
+	scanf("%lf",&ak);
+	ti=tm/2;
+	printf("promenljive (tm,ti1,raz)su\n");
+lab1:
+	ti1=ti-(0.5*e*ti*ti-ugm*(ti*cos(dl-fi1)+sin(dl-fi1-ti)-sin(dl-fi1))-(4.0/ak)*e*pi*pi*f*f*lk*ck)/(e*ti-ugm*(cos(dl-fi1)-cos(dl-fi1-ti)));
+    raz=ti1-ti;
+    printf("%lf%lf%lf\n",tm,ti1,raz);	
+		if(fabs(raz)>=0.00001)
+		{
+			ti=ti1;	
+			goto lab1;
+		}
+		td=2*ti1;
+		td1=2*tm-td;
+		ts=(e*td1-ugm*(cos(dl-fi1)-cos(dl-fi1-td1)))/(2*pi*f*lk);
+		printf("konacni rezultati za td,td1 i ts-struja diode\n");
+		printf("%lf %lf %lf\n",td,td1,ts);
+}  
